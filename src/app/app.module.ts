@@ -8,18 +8,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
+import { ProductCategoriesComponent } from './product-categories/product-categories.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    ProductCategoriesComponent
   ],
   imports: [
     NgbModule,
     BrowserModule,
     // FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
