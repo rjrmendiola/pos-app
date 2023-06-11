@@ -51,8 +51,13 @@ export class UsersComponent implements OnInit {
     this.selectedUser = user ? { ...user } : undefined;
     if (this.selectedUser) {
       // Exclude password field during edit
-      const { password, ...userWithoutPassword } = this.selectedUser;
-      this.userForm.reset(userWithoutPassword);
+      // const { password, ...userWithoutPassword } = this.selectedUser;
+      // this.userForm.reset(userWithoutPassword);
+      this.userForm.patchValue(this.selectedUser);
+
+      // Remove validators for username and password during edit
+      this.userForm.get('username')?.clearValidators();
+      this.userForm.get('password')?.clearValidators();
     } else {
       this.userForm.reset();
     }
