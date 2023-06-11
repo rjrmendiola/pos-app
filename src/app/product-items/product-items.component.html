@@ -1,0 +1,98 @@
+<h2>Product Item List</h2>
+<button type="button" class="btn btn-success" (click)="openModal(modal)">Create</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item Name</th>
+      <th>Product</th>
+      <th>Brand</th>
+      <th>Price</th>
+      <th>Quantity in Stock</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let productItem of productItems">
+      <td>{{ productItem.id }}</td>
+      <td>{{ productItem.name }}</td>
+      <td>{{ getProductName(productItem.product_id) }}</td>
+      <td>{{ productItem.brand }}</td>
+      <td>{{ productItem.price }}</td>
+      <td>{{ productItem.quantity_in_stock }}</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm" (click)="openModal(modal, productItem)">Edit</button>
+        <button (click)="openDeleteConfirmationModal(deleteConfirmationModal, productItem.id)" class="btn btn-danger btn-sm m-1">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<ng-template #modal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ selectedProductItem ? 'Edit Product Item' : 'Add Product Item' }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="productItemForm" (ngSubmit)="saveProductItem(productItemForm.value)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" autocomplete="off" required>
+        <div *ngIf="productItemForm.controls['name'].invalid && productItemForm.controls['name'].touched" class="text-danger">
+          Item name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="product_id">Product</label>
+        <select class="form-control" id="product_id" formControlName="product_id" required>
+            <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+          </select>
+        <div *ngIf="productItemForm.controls['product_id'].invalid && productItemForm.controls['product_id'].touched" class="text-danger">
+          Product name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <input type="text" class="form-control" id="brand" formControlName="brand" autocomplete="off" required>
+        <div *ngIf="productItemForm.controls['brand'].invalid && productItemForm.controls['brand'].touched" class="text-danger">
+          Brand is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" formControlName="price" autocomplete="off" required>
+        <div *ngIf="productItemForm.controls['price'].invalid && productItemForm.controls['price'].touched" class="text-danger">
+          Price is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantity_in_stock">Quantity in Stock</label>
+        <input type="text" class="form-control" id="quantity_in_stock" formControlName="quantity_in_stock" autocomplete="off" required>
+        <div *ngIf="productItemForm.controls['quantity_in_stock'].invalid && productItemForm.controls['quantity_in_stock'].touched" class="text-danger">
+          Quantity in stock is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<!-- Delete Confirmation Modal -->
+<ng-template #deleteConfirmationModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirm Delete</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete this product item?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="deleteProductItem()">Delete</button>
+  </div>
+</ng-template>

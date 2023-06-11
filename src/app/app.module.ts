@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductItemsComponent } from './product-items/product-items.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     UsersComponent,
     ProductCategoriesComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductItemsComponent
   ],
   imports: [
     NgbModule,
