@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
+import { ProductsComponent } from './products/products.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     UsersComponent,
-    ProductCategoriesComponent
+    ProductCategoriesComponent,
+    ProductsComponent
   ],
   imports: [
     NgbModule,
