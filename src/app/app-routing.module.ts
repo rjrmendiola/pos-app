@@ -6,6 +6,8 @@ import { UsersComponent } from './users/users.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductItemsComponent } from './product-items/product-items.component';
+import { SalesComponent } from './sales/sales.component';
+import { SaleFormComponent } from './sale-form/sale-form.component';
 
 const routes: Routes = [
   { path: 'users', component: UsersComponent },
@@ -20,6 +22,10 @@ const routes: Routes = [
   { path: 'product-items', component: ProductItemsComponent },
   { path: 'product-items/new', component: ProductItemsComponent },
   { path: 'product-items/:id', component: ProductItemsComponent },
+  { path: 'sales', component: SalesComponent },
+  { path: 'sales/new', component: SalesComponent },
+  { path: 'sales/:id', component: SalesComponent },
+  { path: 'sale-form/new', component: SaleFormComponent },
 ];
 
 @NgModule({

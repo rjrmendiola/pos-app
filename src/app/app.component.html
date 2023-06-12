@@ -32,6 +32,15 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sales Report
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/sales" routerLinkActive="active" ariaCurrentWhenActive="page">Sales List</a></li>
+            <li><a class="dropdown-item" routerLink="/sale-items" routerLinkActive="active" ariaCurrentWhenActive="page">Sale Item List</a></li>
+          </ul> 
+        </li>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Reports
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,6 +49,7 @@
             <li><a class="dropdown-item" href="#">Sort by User</a></li>
           </ul>
         </li>
+      -->
       </ul>
     </div>
   </div>
@@ -47,4 +57,5 @@
 <div class="container">
   <!-- <app-users></app-users> -->
   <router-outlet></router-outlet>
+  <!-- <app-sale-form></app-sale-form> -->
 </div>

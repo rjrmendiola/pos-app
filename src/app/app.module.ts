@@ -11,8 +11,11 @@ import { UsersComponent } from './users/users.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductItemsComponent } from './product-items/product-items.component';
+import { SalesComponent } from './sales/sales.component';
+import { SaleItemsComponent } from './sale-items/sale-items.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SaleFormComponent } from './sale-form/sale-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { AppRoutingModule } from './app-routing.module';
     UsersComponent,
     ProductCategoriesComponent,
     ProductsComponent,
-    ProductItemsComponent
+    ProductItemsComponent,
+    SalesComponent,
+    SaleItemsComponent,
+    SaleFormComponent
   ],
   imports: [
     NgbModule,

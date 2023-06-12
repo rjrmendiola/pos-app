@@ -1,0 +1,73 @@
+<div class="container">
+    <h4>Sale</h4>
+    <form [formGroup]="saleForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="order_number">Order Number:</label>
+                <input type="text" id="order_number" formControlName="order_number" class="form-control" autocomplete="off" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="order_date">Order Date:</label>
+                <input type="date" id="order_date" formControlName="order_date" class="form-control" autocomplete="off" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="paymentMethod">Payment Method:</label>
+                <!--<input type="text" id="paymentMethod" formControlName="paymentMethod" class="form-control" autocomplete="off" required>-->
+                <select class="form-control" id="payment_method" formControlName="payment_method" required>
+                    <option *ngFor="let item of getObjectKeys(paymentMethods)" [value]="item">{{ paymentMethods[item] }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="customer_name">Customer Name:</label>
+                <input type="text" id="customer_name" formControlName="customer_name" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="customer_phone">Customer Phone:</label>
+                <input type="text" id="customer_phone" formControlName="customer_phone" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="customer_address">Customer Address:</label>
+                <input type="text" id="customer_address" formControlName="customer_address" class="form-control" autocomplete="off">
+            </div>
+        </div>
+    
+        <h4 class="mt-5">Sale Items</h4>
+        <div formArrayName="saleItems">
+            <div *ngFor="let item of saleItems.controls; let i = index" [formGroupName]="i">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="product_item_id{{i}}">Product Item</label>
+                        <select class="form-control" id="product_item_id{{i}}" formControlName="product_item_id" required (change)="onProductItemChange(i)">
+                          <option *ngFor="let productItem of productItems" [value]="productItem.id">{{ productItem.name }}</option>
+                        </select>
+                        <!--<div *ngIf="productItemForm.controls['product_item_id'].invalid && productItemForm.controls['product_id'].touched" class="text-danger">
+                          Product name is required.
+                        </div>-->
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="price{{i}}">Price:</label>
+                        <input type="number" id="price{{i}}" formControlName="price" class="form-control" autocomplete="off" required [readonly]="true">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="quantity{{i}}">Quantity:</label>
+                        <input type="number" id="quantity{{i}}" formControlName="quantity" class="form-control" autocomplete="off" required (change)="onQuantityChange(i)">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="item_total_amount{{i}}">Total Amount:</label>
+                        <input type="number" id="item_total_amount{{i}}" formControlName="item_total_amount" class="form-control" autocomplete="off" required [readonly]="true">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button type="button" class="btn btn-danger mt-3" (click)="removeSaleItem(i)">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button type="button" class="btn btn-primary mt-5" (click)="addSaleItem()">Add Sale Item</button>
+        <button type="submit" class="btn btn-success mt-5 ms-2">Save</button>
+  </form>
+</div>
+
+  

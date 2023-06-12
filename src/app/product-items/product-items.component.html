@@ -48,8 +48,8 @@
       <div class="form-group">
         <label for="product_id">Product</label>
         <select class="form-control" id="product_id" formControlName="product_id" required>
-            <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
-          </select>
+          <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+        </select>
         <div *ngIf="productItemForm.controls['product_id'].invalid && productItemForm.controls['product_id'].touched" class="text-danger">
           Product name is required.
         </div>
