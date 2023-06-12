@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -17,6 +18,8 @@ import { SaleItemsComponent } from './sale-items/sale-items.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SaleFormComponent } from './sale-form/sale-form.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -28,11 +31,13 @@ import { LoginComponent } from './login/login.component';
     SalesComponent,
     SaleItemsComponent,
     SaleFormComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
-    NgbModule,
     BrowserModule,
+    NgbModule,
+    NgChartsModule,
     // FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
