@@ -1,0 +1,8 @@
+form {
+    width: 22rem;
+}
+.btn-block {
+    --mdb-btn-margin-top: 0.5rem;
+    display: block;
+    width: 100%;
+}

@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         () => {
           // Login successful
           // Redirect to the desired page or perform any necessary actions
-          this.router.navigateByUrl('/users');
+          this.router.navigateByUrl('/');
         },
         () => {
           // Login error
