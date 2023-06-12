@@ -22,4 +22,8 @@ export class AppComponent {
   public logout(): void {
     this.loginService.logout();
   }
+
+  public isLoggedIn(): boolean {
+    return this.loginService.isLoggedIn();
+  }
 }

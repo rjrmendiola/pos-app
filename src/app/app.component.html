@@ -11,7 +11,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
         </li>
-        <li class="nav-item dropdown">
+        <li *ngIf="isLoggedIn()" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Users
           </a>
@@ -20,7 +20,7 @@
             <li><a class="dropdown-item" href="#">Logs</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li *ngIf="isLoggedIn()"class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Products
           </a>
@@ -30,7 +30,7 @@
             <li><a class="dropdown-item" routerLink="/product-categories" routerLinkActive="active" ariaCurrentWhenActive="page">Categories</a></li>
           </ul> 
         </li>
-        <li class="nav-item dropdown">
+        <li *ngIf="isLoggedIn()" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sales Report
           </a>
@@ -39,8 +39,11 @@
             <!--<li><a class="dropdown-item" routerLink="/sale-items" routerLinkActive="active" ariaCurrentWhenActive="page">Sale Item List</a></li>-->
           </ul> 
         </li>
-        <li class="nav-item">
+        <li *ngIf="isLoggedIn()" class="nav-item">
           <a class="nav-link active" aria-current="page" (click)="logout()">Logout</a>
+        </li>
+        <li *ngIf="!isLoggedIn()" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/login">Login</a>
         </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
