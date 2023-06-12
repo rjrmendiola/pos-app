@@ -16,6 +16,7 @@ import { SaleItemsComponent } from './sale-items/sale-items.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SaleFormComponent } from './sale-form/sale-form.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SaleFormComponent } from './sale-form/sale-form.component';
     ProductItemsComponent,
     SalesComponent,
     SaleItemsComponent,
-    SaleFormComponent
+    SaleFormComponent,
+    LoginComponent
   ],
   imports: [
     NgbModule,
